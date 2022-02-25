@@ -1,0 +1,16 @@
+@import "./benefit--img";
+@import "./benefit--description";
+
+.benefit {
+  display: flex;
+  width: 100%;
+  width: 25rem;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: map-get($breakpoints, "large")) {
+  .benefit {
+    width: 35rem;
+  }
+}

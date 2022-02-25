@@ -1,0 +1,42 @@
+.header {
+  display: flex;
+  flex-direction: column;
+}
+
+.header .logo {
+  align-self: flex-start;
+}
+
+.header .heading {
+  max-width: 20ch;
+  margin-top: 3rem;
+}
+
+.header .header--tagline {
+  margin-top: 2rem;
+}
+
+.header .btn {
+  margin-bottom: 5rem;
+}
+
+@media (min-width: map-get($breakpoints, "large")) {
+  .header {
+    align-items: flex-start;
+    padding: 5.5rem 0;
+    text-align: left;
+  }
+
+  .header .heading {
+    margin-top: 9rem;
+  }
+
+  .header .header--tagline {
+    margin-top: 3rem;
+  }
+
+  .header .btn {
+    margin-top: 4rem;
+    margin-bottom: 0;
+  }
+}

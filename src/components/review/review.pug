@@ -1,0 +1,14 @@
+mixin review(review)
+  article(class='review')
+    h3(class='review--author')
+      span(class='review--author-name') #{review.name}
+      span(class='review--author-note') #{review.age} лет
+    picture
+      source(srcset=`${require(`Images/reviews/${review.photo}.webp`)},
+                    ${require(`Images/reviews/${review.photo}-2x.webp`)} 2x`
+            type='image/webp')
+      source(srcset=`${require(`Images/reviews/${review.photo}.jpg`)},
+                    ${require(`Images/reviews/${review.photo}-2x.jpg`)} 2x`
+            type='image/jpg')
+      img(class='review--photo' src=require(`Images/reviews/${review.photo}.jpg`) width='81' height='81' loading='lazy' alt=`${review.name}`)
+    p(class='review--text') #{review.comment}

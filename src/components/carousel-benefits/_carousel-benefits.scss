@@ -1,0 +1,54 @@
+.carousel-benefits .carousel--list-item {
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+
+  /* значение --slide-animation передается из js(carouselTab.js) */
+  animation-name: var(--slide-animation);
+  animation-timing-function: ease-out;
+}
+
+@media (min-width: map-get($breakpoints, "large")) {
+  .carousel-benefits .carousel--list-item {
+    animation: none;
+  }
+}
+
+@keyframes to-up {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(125%) scale(0.5);
+  }
+}
+
+@keyframes to-down {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-125%) scale(0.5);
+  }
+}
+
+@keyframes from-up {
+  0% {
+    transform: translateX(125%) scale(0.5);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes from-down {
+  0% {
+    transform: translateX(-125%) scale(0.5);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}

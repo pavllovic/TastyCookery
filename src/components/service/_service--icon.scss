@@ -1,0 +1,27 @@
+.service--icon {
+  --icon-size: 8rem;
+
+  position: relative;
+  display: flex;
+  height: var(--icon-size);
+  align-items: center;
+  padding: 5px 0;
+}
+
+.service--icon svg {
+  position: relative;
+  z-index: 1;
+  width: auto;
+  height: 100%;
+}
+
+/* yellow circle */
+.service--icon::after {
+  display: block;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  margin-left: -4.5rem;
+  background-color: $accent-color;
+  border-radius: 50%;
+  content: "";
+}

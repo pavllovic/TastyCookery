@@ -1,0 +1,11 @@
+.carousel--tablist {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+@media (min-width: map-get($breakpoints, "large")) {
+  .carousel--tablist {
+    display: none;
+  }
+}

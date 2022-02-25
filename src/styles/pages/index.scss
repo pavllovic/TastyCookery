@@ -1,0 +1,482 @@
+@use "Styles/pages/common" as *;
+@import "Components/UI/btn/btn";
+@import "Components/UI/input/input";
+@import "Components/UI/slide-picker/slide-picker";
+@import "Components/logo/logo";
+@import "Components/benefit/benefit";
+@import "Components/review/review";
+@import "Components/service/service";
+@import "Components/carousel/carousel";
+@import "Components/carousel-benefits/carousel-benefits";
+@import "Components/carousel-services/carousel-services";
+@import "Components/carousel-reviews/carousel-reviews";
+@import "Components/form/form";
+@import "Components/header/header";
+@import "Components/footer/footer";
+
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: $min-width;
+  min-height: 100%;
+  color: $text-color;
+  font-family: $font-main;
+  text-align: center;
+}
+
+a {
+  color: inherit;
+}
+
+/* начальные стили для для :pseudo-elements
+используемых как backgound-image с овощами */
+%bg-vegetables {
+  position: absolute;
+  z-index: 0;
+  width: 35rem;
+  height: 20rem;
+  background: url("Images/bg/rr.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  content: "";
+  transform-origin: center;
+}
+
+/*
+style hero
+*/
+.wrap-hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle, $bg-accent-color, #f35365 45%, transparent 100%),
+    radial-gradient(circle, #f35365, #f35365 25%, transparent 50%),
+    radial-gradient(circle, #f35365, #f35365 25%, transparent 50%),
+    $bg-accent-color;
+  background-position: center, -100vw top, 0 bottom;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-size: 100% 100%, 200% 100%, 200% 100%;
+}
+
+/* background-image top/right */
+.wrap-hero::before {
+  @extend %bg-vegetables;
+
+  top: -15rem;
+  right: -33rem;
+  filter: blur(1px);
+  transform: scale(2.7, -2.7) rotate(37deg);
+}
+
+/* background-image center/left */
+.wrap-hero::after {
+  @extend %bg-vegetables;
+
+  top: 32.5rem;
+  left: -10rem;
+  filter: blur(1px);
+  transform: scale(2.7, -2.7) rotate(285deg);
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  max-width: $max-width;
+  padding: 20px;
+  padding-bottom: 0;
+  margin: 0 auto;
+  background: transparent;
+  color: $text-color-white;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  justify-items: center;
+}
+
+/* background-image bottom/center */
+.hero::after {
+  @extend %bg-vegetables;
+
+  z-index: 1;
+  bottom: -20rem;
+  left: 50%;
+  display: none;
+  filter: blur(3px);
+  transform: translateX(-64%) rotate(352deg) scale(4.1);
+}
+
+.hero .header {
+  position: relative;
+  z-index: 2;
+
+  // hero--img height - header--tagline line-height and margin-top
+  padding-bottom: calc(44rem - 4.4rem);
+  grid-column: 1;
+  grid-row: 1/-1;
+}
+
+.hero .header .btn {
+  position: absolute;
+  bottom: 0;
+}
+
+.hero--img {
+  position: relative;
+  z-index: 1;
+  height: 44rem;
+  align-self: flex-end;
+  grid-column: 1;
+  grid-row: 2/3;
+}
+
+.hero--img img {
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* background-image front */
+.hero--img::before {
+  @extend %bg-vegetables;
+
+  bottom: 0;
+  left: 0;
+  filter: blur(2px);
+  transform: translateY(-1rem) translateX(-5rem) scale(1.8) rotateZ(-5deg);
+}
+
+/* background-image back */
+.hero--img::after {
+  @extend %bg-vegetables;
+
+  z-index: -1;
+  bottom: 0;
+  left: 0;
+  filter: blur(2px);
+  transform: translateY(-14rem) translateX(-1rem) scale(0.8, -0.8) rotate(195deg);
+}
+
+@media (min-width: map-get($breakpoints, "large")) {
+  /* background-image top/right */
+  .wrap-hero::before {
+    @extend %bg-vegetables;
+
+    top: -63rem;
+    right: -20rem;
+    filter: blur(0.5px);
+    transform: scale(4.2, -4.2) rotate(41deg);
+  }
+
+  /* background-image bottom/left */
+  .wrap-hero::after {
+    @extend %bg-vegetables;
+
+    top: 38rem;
+    left: -46rem;
+    filter: blur(0.5px);
+    transform: scale(3, -3) rotate(43deg);
+  }
+
+  .hero {
+    padding: 0 120px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    justify-items: flex-start;
+  }
+
+  /* background-image bottom/center */
+  .hero::after {
+    display: block;
+  }
+
+  .hero .header {
+    padding-bottom: 5.5rem;
+  }
+
+  .hero .header .btn {
+    position: relative;
+    bottom: initial;
+  }
+
+  .hero--img {
+    height: 60rem;
+    grid-column: 2;
+    grid-row: 1/-1;
+  }
+
+  /* background-image back/right */
+  .hero--img::after {
+    @extend %bg-vegetables;
+
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    filter: blur(0.5px);
+    transform: translateY(0) translateX(13rem) scale(2.3, -2.3) rotate(196deg);
+  }
+
+  /* background-image back/left */
+  .hero--img::before {
+    @extend %bg-vegetables;
+
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    filter: blur(0.5px);
+    transform: translateY(32rem) translateX(4rem) scale(4, -4) rotate(286deg);
+  }
+}
+
+/*
+end style hero
+*/
+
+/*
+style promo
+*/
+.promo {
+  padding-top: 50px;
+  padding-bottom: 40px;
+}
+
+.promo .subheading {
+  max-width: 17ch;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+}
+
+.promo .carousel-services {
+  margin-bottom: 5rem;
+}
+
+@media (min-width: map-get($breakpoints, "large")) {
+  .promo {
+    padding: 60px 0;
+  }
+
+  .promo .carousel-services {
+    margin-bottom: 6rem;
+  }
+
+  .promo .subheading {
+    max-width: none;
+    margin-bottom: 3rem;
+  }
+}
+
+/*
+end style promo
+*/
+
+/*
+style offer
+*/
+.offer {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 60px;
+  padding-bottom: 50px;
+  background: #301010;
+  color: $text-color-white;
+}
+
+/* background offer block */
+.offer::before {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("Images/bg/1.png");
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  content: "";
+  filter: blur(4px);
+}
+
+.offer > * {
+  position: relative;
+  z-index: 1;
+}
+
+.offer p {
+  max-width: 32ch;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: map-get($breakpoints, "large")) {
+  .offer p {
+    display: flex;
+    max-width: none;
+    flex-direction: column;
+  }
+}
+
+/*
+end style offer
+*/
+
+/*
+style reviews
+*/
+.reviews {
+  padding: 50px 0;
+}
+
+.reviews .subheading {
+  max-width: 23ch;
+  margin: 0 auto;
+  word-spacing: 0;
+}
+
+@media (min-width: map-get($breakpoints, "large")) {
+  .reviews {
+    padding-bottom: 60px;
+  }
+
+  .reviews .subheading {
+    max-width: none;
+    margin-bottom: 3rem;
+  }
+}
+
+/*
+end style reviews
+*/
+
+/*
+style registration
+*/
+.wrap-registration {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(to right, #f35365, #f35365 30%, transparent 100%),
+    $bg-accent-color;
+}
+
+/* background-image bottom/left */
+.wrap-registration::before {
+  @extend %bg-vegetables ;
+
+  bottom: 0;
+  left: 50%;
+  filter: blur(1px);
+  transform: translateX(-14rem) translateY(22rem) scale(2.8);
+}
+
+/* background-image top/right */
+.wrap-registration::after {
+  @extend %bg-vegetables ;
+
+  top: 0;
+  right: 50%;
+  filter: blur(2px);
+  transform: translateX(42rem) translateY(-3rem) rotate(137deg) scale(1.7, -1.7);
+}
+
+.registration {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  max-width: $max-width;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+  padding-top: 40px;
+  margin: 0 auto;
+  background: transparent;
+  color: $text-color-white;
+  text-align: left;
+}
+
+.registration p:not([class]) {
+  max-width: 32ch;
+}
+
+.registration--form {
+  width: 100%;
+  max-width: 37rem;
+  margin-top: 2rem;
+}
+
+.registration .footer {
+  margin-top: 4rem;
+}
+
+/* background-image top/center */
+.registration::after {
+  @extend %bg-vegetables ;
+
+  z-index: -1;
+  top: -54rem;
+  right: 50%;
+  display: none;
+  filter: blur(3px);
+  transform: scale(4) rotateZ(235deg);
+}
+
+@media (min-width: map-get($breakpoints, "large")) {
+  .wrap-registration {
+    background: $bg-accent-color;
+  }
+
+  /* background-image right/center */
+  .wrap-registration::before {
+    @extend %bg-vegetables ;
+
+    top: 5rem;
+    right: -8rem;
+    left: initial;
+    filter: blur(1px);
+    transform: scale(4) rotateZ(235deg);
+  }
+
+  /* background-image bottom/left */
+  .wrap-registration::after {
+    @extend %bg-vegetables ;
+
+    top: 70rem;
+    right: initial;
+    left: 31rem;
+    filter: blur(1px);
+    transform: scale(-3.5, 3.5) rotate(324deg);
+  }
+
+  .registration {
+    display: grid;
+    align-items: flex-start;
+    padding: 0 120px;
+    padding-top: 15rem;
+    background-repeat: no-repeat;
+    grid-template-columns: 1fr 1fr;
+    justify-items: flex-start;
+  }
+
+  /* background-image top/center */
+  .registration::after {
+    display: block;
+  }
+
+  .registration--form,
+  .registration p:not([class]) {
+    margin: 0 50px;
+  }
+
+  .registration .footer {
+    margin-top: 18rem;
+    grid-column: 1/-1;
+  }
+}
+
+/*
+end style registration
+*/

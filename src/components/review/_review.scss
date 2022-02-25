@@ -1,0 +1,34 @@
+@import "./review--author";
+@import "./review--author-name";
+@import "./review--author-note";
+@import "./review--photo";
+@import "./review--text";
+
+.review {
+  display: grid;
+  width: 100%;
+  max-width: 36rem;
+  align-items: center;
+  padding: 20px;
+  margin: 0 auto;
+  column-gap: 2rem;
+  grid-template-columns: 8.1rem auto;
+  grid-template-rows: auto auto;
+  justify-items: flex-start;
+  row-gap: 4rem;
+}
+
+.review .review--text {
+  grid-column: 1/3;
+  grid-row: 1;
+}
+
+.review .review--photo {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.review .review--author {
+  grid-column: 2;
+  grid-row: 2;
+}

@@ -1,0 +1,12 @@
+.carousel--tablist-item {
+  margin: 0.5rem;
+}
+
+.carousel--tablist-item:focus,
+.carousel--tablist-item:focus-visible {
+  outline: none;
+}
+
+.carousel--tablist-item.is-focus {
+  outline: 2px solid hsl(200deg 55% 45%);
+}

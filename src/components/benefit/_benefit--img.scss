@@ -1,0 +1,11 @@
+.benefit--img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+@media (min-width: map-get($breakpoints, "large")) {
+  .benefit--img {
+    min-width: 34rem;
+  }
+}

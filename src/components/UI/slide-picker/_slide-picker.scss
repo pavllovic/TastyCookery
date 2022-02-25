@@ -1,0 +1,29 @@
+.slide-picker {
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  background-color: #eaeaea;
+  border-radius: 50%;
+}
+
+/* стили для активного состояния picker */
+.slide-picker::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $accent-color;
+  border-radius: inherit;
+  content: "";
+  transform: scale(0);
+  transform-origin: center;
+  transition-duration: 0.3s;
+  transition-property: transform;
+  transition-timing-function: ease-in;
+}
+
+/* класс .is-active устанавливается через JS(carouselTab.js) */
+.slide-picker.is-active::before {
+  transform: scale(1);
+}

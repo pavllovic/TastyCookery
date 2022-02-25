@@ -1,0 +1,9 @@
+.review--photo {
+  $size: 8.1rem;
+
+  overflow: hidden;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  box-shadow: 0 5px 10px 0 hsl(0deg 0% 0% / 20%);
+}

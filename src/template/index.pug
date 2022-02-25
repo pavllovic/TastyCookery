@@ -1,0 +1,99 @@
+extends ./layout/base.pug
+
+block preload
+  link(rel="preload" as='image' href=require('Images/hero/2.webp')
+      imagesrcset=`${require('Images/hero/2.webp')}, ${require('Images/hero/2-2x.webp')} 2x`)
+
+block styles
+  style. 
+    @font-face {
+      font-display: swap;
+      font-family: Circe;
+      font-weight: 400;
+      src:
+        url(#{require("Fonts/Circe-Regular.woff2")}) format("woff2"),
+        url(#{require("Fonts/Circe-Regular.woff")}) format("woff");
+    }
+
+    @font-face {
+      font-display: swap;
+      font-family: Circe;
+      font-weight: 900;
+      src:
+        url(#{require("Fonts/Circe-ExtraBold.woff2")}) format("woff2"),
+        url(#{require("Fonts/Circe-ExtraBold.woff")}) format("woff");
+    }
+
+    @font-face {
+      font-display: swap;
+      font-family: Circe;
+      font-weight: 300;
+      src:
+        url(#{require("Fonts/Circe-Light.woff2")}) format("woff2"),
+        url(#{require("Fonts/Circe-Light.woff")}) format("woff");
+    }
+
+    @font-face {
+      font-display: swap;
+      font-family: PFHandbookPro;
+      font-weight: 400;
+      src:
+        url(#{require("Fonts/PFHandbookPro-Regular.woff2")}) format("woff2"),
+        url(#{require("Fonts/PFHandbookPro-Regular.woff")}) format("woff");
+    }
+
+block content
+  div(class='wrapper')
+
+    //- hero block
+    div(class='wrap-hero')
+      section(class='hero')
+        include ../components/header/header.pug
+        div(class='hero--img')
+          picture
+            source(srcset=`${require('Images/hero/2.webp')},
+                          ${require('Images/hero/2-2x.webp')} 2x`
+                  type='image/webp')
+            source(srcset=`${require('Images/hero/2.png')},
+                          ${require('Images/hero/2-2x.png')} 2x`
+                  type='image/png')
+            img(src=require('Images/hero/2.png') width='316' height='607' alt='улыбающаяся девушка')
+      
+
+    //- promo block
+    section(class='promo')
+      include ../components/carousel-services/carousel-services.pug
+      h2(class='subheading') Почему круто быть с нами:
+      include ../components/carousel-benefits/carousel-benefits.pug
+
+
+    //- offer block
+    section(class='offer')
+      h2(class='visually-hidden') Стать членом семьи Tastycookery
+      p(class='text-lg') 
+        span Удобно получать на емейл уникальные проверенные рецепты, 
+        span которые дружная команда Tastycookery попробовала сама и рекомендует
+      a(class='btn' href='#form-signup' onclick='event.preventDefault(); window.scrollTo(0,document.body.scrollHeight);')
+        span(class='btn--note') Стать членом семьи Tastycookery
+        span(class='btn--text') Бесплатно
+
+
+    //- reviews block
+    section(class='reviews')
+      h2(class='subheading') отзывы довольных пользователей
+      include ../components/carousel-reviews/carousel-reviews.pug
+
+
+    //- registration block
+    div(class='wrap-registration')
+      section(class='registration')
+        h2(class='visually-hidden') форма регистрации
+        p. 
+          Sign up to receive daily manually selected recipes, 
+          delicious weekly articles, 3-piece sets of slow cooker, 
+          vegetarian, and lunch ideas, plus Quick&Easy recipes 
+          and Nutrition Value flashcards via email.
+        div(class='registration--form')
+          include ../components/form/form.pug
+        include ../components/footer/footer.pug
+  include ../images/icon/icon-sprite.svg

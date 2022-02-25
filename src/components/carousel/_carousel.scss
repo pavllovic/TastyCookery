@@ -1,0 +1,10 @@
+@import "./carousel--list";
+@import "./carousel--list-item";
+@import "./carousel--tablist";
+@import "./carousel--tablist-item";
+
+.carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

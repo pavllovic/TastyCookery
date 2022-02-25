@@ -1,0 +1,57 @@
+@use "./breakpoints" as *;
+@use "./fonts" as *;
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: $font-main;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.heading {
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: inherit;
+  text-transform: uppercase;
+}
+
+.subheading {
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: inherit;
+  text-transform: uppercase;
+}
+
+.text-lg {
+  font-size: 1.8rem;
+  line-height: 2.2rem;
+}
+
+.text-sm {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: inherit;
+}
+
+@media (min-width: map-get($breakpoints, "large")) {
+  body {
+    font-size: 2.4rem;
+  }
+
+  .heading {
+    font-size: 5.4rem;
+  }
+
+  .subheading {
+    font-size: 4rem;
+  }
+
+  .text-lg {
+    font-size: 2.6rem;
+    line-height: 3.2rem;
+  }
+}

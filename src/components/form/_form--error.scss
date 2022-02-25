@@ -1,0 +1,13 @@
+.form--error {
+  border: 2px solid #fff;
+  margin-top: -10px;
+  background-color: #ffe4e4;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: #909090;
+  font-size: 1.6rem;
+  line-height: 1.25;
+  transition-duration: 0.2s, 0.2s;
+  transition-property: height, opacity;
+  transition-timing-function: ease-in, ease-in;
+}

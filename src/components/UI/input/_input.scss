@@ -1,0 +1,17 @@
+.input {
+  width: 100%;
+  padding: 2rem 30px;
+  border: none;
+  background-color: #fff;
+  border-radius: 10px;
+  caret-color: currentcolor;
+  color: #909090;
+  font-size: 1.6rem;
+  line-height: 1.25;
+}
+
+.input:invalid {
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 5px 0 #dbdbdb;
+}

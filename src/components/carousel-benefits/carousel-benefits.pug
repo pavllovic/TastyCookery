@@ -1,0 +1,11 @@
+include ../benefit/benefit.pug
+- const benefits = require('BD/benefits.json')
+div(class='carousel carousel-benefits' id='carousel-benefits')
+  div(class='carousel--list')
+    each slide, index in benefits
+      div(class='carousel--list-item' id=`benefit-${index + 1}` role='tabpanel' aria-label=`слайд номер ${index + 1}` data-carousel='slide')
+        +benefit(slide)
+  div(class='carousel--tablist' role='tablist' aria-label='carousel tablist')
+    each tab, index in benefits
+      div(class='carousel--tablist-item slide-picker' role='tab'  
+          aria-selected='true' aria-controls=`benefit-${index + 1}` aria-label=`таб ${index + 1}`)

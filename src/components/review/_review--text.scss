@@ -1,0 +1,50 @@
+.review--text {
+  --border-width: 1px;
+  --triangle-size: 20px;
+
+  position: relative;
+  padding: 20px;
+  border: var(--border-width, 1px) solid #dcdcdc;
+  background-color: #fff;
+  border-radius: 20px;
+
+  /* в макете тень есть, но скрыта */
+  // filter: drop-shadow(0 10px 10px hsla(0deg 0% 0% / 20%));
+  font-size: 1.4rem;
+  font-weight: 300;
+  text-align: left;
+}
+
+/* triangle border */
+.review--text::before {
+  position: absolute;
+  top: 100%;
+  left: 4rem;
+  width: 0;
+  height: 0;
+  border-width:
+    var(--triangle-size, 20px)
+    var(--triangle-size, 20px)
+    0
+    0;
+  border-style: solid;
+  border-color: #dcdcdc transparent transparent;
+  content: "";
+}
+
+/* triangle background */
+.review--text::after {
+  position: absolute;
+  top: calc(100% - var(--border-width, 1px));
+  left: calc(4rem + var(--border-width, 1px));
+  width: 0;
+  height: 0;
+  border-width:
+    calc(var(--triangle-size, 20px) - var(--border-width, 1px) * 2)
+    calc(var(--triangle-size, 20px) - var(--border-width, 1px) * 2)
+    0
+    0;
+  border-style: solid;
+  border-color: #fff transparent transparent;
+  content: "";
+}

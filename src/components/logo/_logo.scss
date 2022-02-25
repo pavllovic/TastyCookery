@@ -1,0 +1,19 @@
+@import "./logo--name";
+@import "./logo--tagline";
+@import "./logo--icon";
+
+.logo {
+  display: inline-grid;
+  align-items: center;
+  justify-content: flex-start;
+  column-gap: 10px;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  row-gap: 5px;
+  text-align: left;
+  text-decoration: none;
+}
+
+.logo .logo--icon {
+  grid-row: 1/3;
+}

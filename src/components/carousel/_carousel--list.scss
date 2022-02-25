@@ -1,0 +1,27 @@
+.carousel--list {
+  position: relative;
+  display: grid;
+  width: 100%;
+  align-items: flex-end;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  justify-items: center;
+}
+
+.carousel--list .carousel--list-item {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+@media (min-width: map-get($breakpoints, "large")) {
+  .carousel--list {
+    justify-content: center;
+    column-gap: 60px;
+    grid-template-columns: auto;
+  }
+
+  .carousel--list .carousel--list-item {
+    grid-column: initial;
+    grid-row: 1;
+  }
+}

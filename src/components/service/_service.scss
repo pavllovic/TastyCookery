@@ -1,0 +1,8 @@
+@import "./service--name";
+@import "./service--icon";
+
+.service {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

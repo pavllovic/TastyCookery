@@ -1,0 +1,26 @@
+.carousel--list-item {
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  transition-delay: 0s, 0s;
+  transition-duration: 0.25s, 0.25s;
+  transition-property: visibility, opacity;
+  transition-timing-function: ease-in, ease-in;
+  visibility: hidden;
+}
+
+.carousel--list-item.is-active {
+  opacity: 1;
+  transition-delay: 0.25s, 0.25s;
+  transition-duration: 0.25s, 0.25s;
+  visibility: visible;
+}
+
+@media (min-width: map-get($breakpoints, "large")) {
+  .carousel--list-item {
+    opacity: 1;
+    transition-delay: 0s;
+    transition-duration: 0s;
+    visibility: visible;
+  }
+}
