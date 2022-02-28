@@ -52,9 +52,9 @@ style hero
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle, $bg-accent-color, #f35365 45%, transparent 100%),
-    radial-gradient(circle, #f35365, #f35365 25%, transparent 50%),
-    radial-gradient(circle, #f35365, #f35365 25%, transparent 50%),
+    radial-gradient(circle, $bg-accent-color, #f35365 45%, hsl(0deg 100% 100% / 0%) 100%),
+    radial-gradient(circle, #f35365, #f35365 25%, hsl(0deg 100% 100% / 0%) 50%),
+    radial-gradient(circle, #f35365, #f35365 25%, hsl(0deg 100% 100% / 0%) 50%),
     $bg-accent-color;
   background-position: center, -100vw top, 0 bottom;
   background-repeat: no-repeat, no-repeat, no-repeat;
@@ -88,7 +88,7 @@ style hero
   padding: 20px;
   padding-bottom: 0;
   margin: 0 auto;
-  background: transparent;
+  background: hsl(0deg 100% 100% / 0%);
   color: $text-color-white;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
@@ -238,7 +238,7 @@ end style hero
 style promo
 */
 .promo {
-  padding-top: 50px;
+  padding-top: 30px;
   padding-bottom: 40px;
 }
 
@@ -254,7 +254,7 @@ style promo
 
 @media (min-width: map-get($breakpoints, "large")) {
   .promo {
-    padding: 60px 0;
+    padding: 40px 0;
   }
 
   .promo .carousel-services {
@@ -359,7 +359,7 @@ style registration
   position: relative;
   overflow: hidden;
   background:
-    linear-gradient(to right, #f35365, #f35365 30%, transparent 100%),
+    linear-gradient(to right, #f35365, #f35365 30%, hsl(0deg 100% 100% / 0%) 100%),
     $bg-accent-color;
 }
 
@@ -393,7 +393,7 @@ style registration
   padding: 0 20px;
   padding-top: 40px;
   margin: 0 auto;
-  background: transparent;
+  background: hsl(0deg 100% 100% / 0%);
   color: $text-color-white;
   text-align: left;
 }

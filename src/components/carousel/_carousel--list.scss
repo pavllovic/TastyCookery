@@ -1,6 +1,7 @@
 .carousel--list {
   position: relative;
   display: grid;
+  overflow: hidden;
   width: 100%;
   align-items: flex-end;
   grid-template-columns: 1fr;
