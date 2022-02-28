@@ -14,6 +14,7 @@ module.exports = {
     "prefer-destructuring": "off",
     "no-unused-expressions": ["error", {"allowTernary": true}],
     "func-names": "off",
-    "import/no-import-module-exports": "off"
+    "import/no-import-module-exports": "off",
+    "no-console": "off"
   }
 }

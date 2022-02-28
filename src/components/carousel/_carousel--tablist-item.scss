@@ -10,3 +10,12 @@
 .carousel--tablist-item.is-focus {
   outline: 2px solid hsl(200deg 55% 45%);
 }
+
+.carousel--tablist-item.is-active.is-focus {
+  outline: none;
+}
+
+.carousel--tablist-item.is-active.is-focus:focus,
+.carousel--tablist-item.is-active.is-focus:focus-visible {
+  outline: 2px solid hsl(200deg 55% 45%);
+}

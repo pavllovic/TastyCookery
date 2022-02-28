@@ -83,11 +83,15 @@ export function activateTab(tab) {
 }
 
 export function onclickTab(tab) {
-  const id = tab.getAttribute('aria-controls');
-  const slide = this.carousel.querySelector(`#${id}`);
-  this.setSlidesAnimation(slide);
-  this.activateSlide(slide);
-  this.activateTab(tab);
+  if(tab !== this.activeTab) {
+    const id = tab.getAttribute('aria-controls');
+    const slide = this.carousel.querySelector(`#${id}`);
+    this.setSlidesAnimation(slide);
+    this.activateSlide(slide);
+    this.unfocusTab(this.activeTab);
+    this.activateTab(tab);
+    tab.focus();
+  }
   // this.undisableControl();
   // if(tab === this.tablist.firstElementChild) {
   //   const control = this.carousel.querySelector('[data-carousel="prev-slide"]');
@@ -147,16 +151,17 @@ export function onkeydown(e) {
 }
 
 export function handleEvent(e) {
+  const isTab = e.target.getAttribute('role') === 'tab';
   switch(e.type) {
     case 'click':
       e.stopPropagation();
-      if(e.target.getAttribute('role') === 'tab') return this.onclickTab(e.target);
+      if(isTab) return this.onclickTab(e.target);
       // if(e.target.hasAttribute('aria-controls') && e.target !== this.disableControl) {
       //   return this.changeSlide(e.target);
       // }
       break;
     case 'keydown':
-      if(e.target.getAttribute('role') === 'tab') return this.onkeydown(e);
+      if(isTab) return this.onkeydown(e);
       break;
     case 'focusin':
       if(e.target === this.activeTab) return this.focusTab(this.activeTab);
