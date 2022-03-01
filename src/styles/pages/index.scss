@@ -52,9 +52,9 @@ style hero
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle, $bg-accent-color, #f35365 45%, hsl(0deg 100% 100% / 0%) 100%),
-    radial-gradient(circle, #f35365, #f35365 25%, hsl(0deg 100% 100% / 0%) 50%),
-    radial-gradient(circle, #f35365, #f35365 25%, hsl(0deg 100% 100% / 0%) 50%),
+    radial-gradient(circle, $bg-accent-color, hsl(353deg 87% 64%) 45%, hsl(353deg 87% 64% / 0%) 100%),
+    radial-gradient(circle, hsl(353deg 87% 64%), hsl(353deg 87% 64%) 25%, hsl(353deg 87% 64% / 0%) 50%),
+    radial-gradient(circle, hsl(353deg 87% 64%), hsl(353deg 87% 64%) 25%, hsl(353deg 87% 64% / 0%) 50%),
     $bg-accent-color;
   background-position: center, -100vw top, 0 bottom;
   background-repeat: no-repeat, no-repeat, no-repeat;
@@ -359,7 +359,7 @@ style registration
   position: relative;
   overflow: hidden;
   background:
-    linear-gradient(to right, #f35365, #f35365 30%, hsl(0deg 100% 100% / 0%) 100%),
+    linear-gradient(to right, hsl(353deg 87% 64%), hsl(353deg 87% 64%) 30%, hsl(353deg 87% 64% / 0%) 100%),
     $bg-accent-color;
 }
 

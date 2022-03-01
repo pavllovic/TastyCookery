@@ -8,4 +8,4 @@ div(class='carousel carousel-benefits' id='carousel-benefits')
   div(class='carousel--tablist' role='tablist' aria-label='carousel tablist')
     each tab, index in benefits
       div(class='carousel--tablist-item slide-picker' role='tab'  
-          aria-selected='false' aria-controls=`benefit-${index + 1}` aria-label=`таб ${index + 1}`)
+          aria-selected='false' aria-controls=`benefit-${index + 1}` aria-label=`таб ${index + 1}` tabindex='-1')

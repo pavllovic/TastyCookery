@@ -8,7 +8,6 @@ export function carouselTab(elem) {
 export function init() {
   this.setListeners();
   // this.disableControl(this.carousel.querySelector('[data-carousel="prev-slide"]'));
-  // this.activateSlide(this.carousel.querySelector('[data-carousel="slide"]'));
   this.activateSlide(this.carousel.querySelector('[data-carousel="slide"]'));
   // this.focusTab(this.tablist.firstElementChild);
   this.activateTab(this.tablist.firstElementChild);
@@ -121,20 +120,21 @@ export function onkeydown(e) {
   switch(action) {
     case KeysActions.Left:
       e.preventDefault();
-      if(this.focusedTab.previousElementSibling) {
+      if(this.focusedTab?.previousElementSibling) {
         return this.focusTab(this.focusedTab.previousElementSibling);
       }
       break;
     case KeysActions.Right:
       e.preventDefault();
-      if(this.focusedTab.nextElementSibling) {
+      if(this.focusedTab?.nextElementSibling) {
         return this.focusTab(this.focusedTab.nextElementSibling);
       }
       break;
     case KeysActions.Space:
     case KeysActions.CloseSelect:
       e.preventDefault();
-      return this.onclickTab(this.focusedTab);
+      if(this.focusedTab) return this.onclickTab(this.focusedTab);
+      break;
     case KeysActions.First:
       e.preventDefault();
       return this.focusTab(this.tablist.firstElementChild);
@@ -142,7 +142,7 @@ export function onkeydown(e) {
       e.preventDefault();
       return this.focusTab(this.tablist.lastElementChild);
     case KeysActions.Blur:
-      this.unfocusTab(this.focusedTab);
+      if(this.focusedTab) return this.unfocusTab(this.focusedTab);
       break;
     default:
       break;
